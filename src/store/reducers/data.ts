@@ -1,19 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { omit } from "lodash";
 
-interface state {
-  favoriteRegion: string;
+interface IJokesDict {
+  [id: number]: string;
 }
 
-const initialDataState: state = {
-  favoriteRegion: "Lubuskie",
+interface IState {
+  currentJoke: string;
+  savedJokes: IJokesDict;
+  customPerson: string;
+}
+
+const initialDataState: IState = {
+  currentJoke: "",
+  savedJokes: {},
+  customPerson: "",
 };
 
 const dataSlice = createSlice({
   name: "data",
   initialState: initialDataState,
   reducers: {
-    setFavRegion(state, action) {
-      state.favoriteRegion = action.payload;
+    setCurrentJoke(state, action) {
+      state.currentJoke = action.payload;
+    },
+    addSavedJoke(state, action) {
+      const { id, jokeVal } = action.payload;
+      state.savedJokes[id] = jokeVal;
+    },
+    deleteSavedJoke(state, action) {
+      const { id } = action.payload;
+      state.savedJokes = omit(state.savedJokes, id);
     },
   },
 });

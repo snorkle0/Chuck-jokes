@@ -1,11 +1,14 @@
-import React from 'react';
-import * as S from './App.styles';
-import './App.styles.tsx';
+import React from "react";
+import * as S from "./App.styles";
+import "./App.styles.tsx";
+import CurrentJoke from "./components/current-joke/CurrentJoke";
 
 function App() {
   return (
     <S.App>
-      <S.Rectangle>hi</S.Rectangle>
+      <S.Rectangle>
+        <CurrentJoke />
+      </S.Rectangle>
     </S.App>
   );
 }

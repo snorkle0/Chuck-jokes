@@ -6,15 +6,15 @@ export const chuckJokesApi = createApi({
   endpoints: (builder) => ({
     getRandomJoke: builder.query({
       query: (params: any) =>
-        `jokes/random${
+        `jokes/random?${
           params.person
             ? params.person.split(" ").length > 0
-              ? `?firstName=${params.person.split(" ")[0]}&lastName=${
+              ? `firstName=${params.person.split(" ")[0]}&lastName=${
                   params.person.split(" ")[1]
-                }`
-              : `?firstName=${params.person}`
+                }&`
+              : `firstName=${params.person}&`
             : ""
-        }${params.category.length > 0 ? `?limitTo=[${params.category}]` : ""}`,
+        }${params.category.length > 0 ? `limitTo=[${params.category}]` : ""}`,
       transformResponse: (response: any) => response.value.joke,
     }),
     getJokeCategories: builder.query({

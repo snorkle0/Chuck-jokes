@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { omit } from "lodash";
+import he from 'he';
 
 interface IJokesDict {
   [id: number]: string;
@@ -24,7 +25,8 @@ const dataSlice = createSlice({
   initialState: initialDataState,
   reducers: {
     setCurrentJoke(state, action) {
-      state.currentJoke = action.payload;
+      if (!action.payload) return;
+      state.currentJoke = he.decode(action.payload);
     },
     addSavedJoke(state, action) {
       const { id, jokeVal } = action.payload;

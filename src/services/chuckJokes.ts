@@ -5,21 +5,24 @@ export const chuckJokesApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://api.icndb.com/" }),
   endpoints: (builder) => ({
     getRandomJoke: builder.query({
-      query: () => `jokes/random?escape=javascript?callback=`,
-      transformResponse: (response: any) => response.value,
+      query: (params: any) =>
+        `jokes/random${
+          params.person
+            ? params.person.split(" ").length > 0
+              ? `?firstName=${params.person.split(" ")[0]}&lastName=${
+                  params.person.split(" ")[1]
+                }`
+              : `?firstName=${params.person}`
+            : ""
+        }${params.category.length > 0 ? `?limitTo=[${params.category}]` : ""}`,
+      transformResponse: (response: any) => response.value.joke,
     }),
     getJokeCategories: builder.query({
       query: () => "categories",
-    }),
-    getImpersonatedJoke: builder.query({
-      query: (name: string) =>
-        `jokes/random?firstName=${name.split(" ")[0]}&lastName=${name.split(" ")[1]}`,
+      transformResponse: (response: any) => response.value,
     }),
   }),
 });
 
-export const {
-  useGetRandomJokeQuery,
-  useGetJokeCategoriesQuery,
-  useGetImpersonatedJokeQuery,
-} = chuckJokesApi;
+export const { useGetRandomJokeQuery, useGetJokeCategoriesQuery } =
+  chuckJokesApi;

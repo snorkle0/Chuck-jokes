@@ -7,11 +7,11 @@ export const Image = styled.img`
   object-fit: contain;
 `;
 
-export const TextArea = styled.span`
+export const TextArea = styled.div`
   width: 439px;
   height: 66px;
   margin: 24px 0 32px;
-  font-family: Roboto;
+  font-family: Inter;
   font-size: 19px;
   font-weight: 600;
   font-stretch: normal;

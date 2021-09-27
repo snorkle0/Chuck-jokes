@@ -1,19 +1,28 @@
-import * as React from 'react';
+import React from 'react';
 import TextField from '@mui/material/TextField';
+import { dataActions } from '../../store/reducers/data';
+import { useAppDispatch, useAppSelector } from '../../hooks/appHooks';
+import * as S from "./Controls.styles";
 
 const TextInput = () => {
-  const [name, setName] = React.useState('Cat in the Hat');
+
+  const dispatch = useAppDispatch();
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value);
+    dispatch(dataActions.setCustomPerson(event.target.value));
   };
 
+  const person = useAppSelector((state) => state.data.customPerson);
+
   return (
+    <S.ControlContainer>
       <TextField
         id="outlined-name"
-        label="Name"
-        value={name}
+        label="Impersonate Chuck Norris"
+        fullWidth
+        value={person}
         onChange={handleChange}
       />
+      </S.ControlContainer>
   );
 }
 

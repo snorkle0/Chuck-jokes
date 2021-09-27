@@ -1,23 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export interface IUIParams {
+  timesFetched: number;
+  category: string;
+  person: string;
+}
+
 interface state {
-  notification: any;
+  queryParams: IUIParams;
 }
 
 const initialState: state = {
-  notification: null,
+  queryParams: {
+    timesFetched: 0,
+    category: "",
+    person: "",
+  },
 };
 
 const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-    showNotification(state, action) {
-      state.notification = {
-        status: action.payload.status,
-        title: action.payload.title,
-        message: action.payload.message,
-      };
+    setQueryParams(state, action) {
+      state.queryParams = action.payload;
     },
   },
 });

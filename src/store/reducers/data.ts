@@ -9,12 +9,14 @@ interface IState {
   currentJoke: string;
   savedJokes: IJokesDict;
   customPerson: string;
+  category: string;
 }
 
 const initialDataState: IState = {
   currentJoke: "",
   savedJokes: {},
   customPerson: "",
+  category: ""
 };
 
 const dataSlice = createSlice({
@@ -31,6 +33,12 @@ const dataSlice = createSlice({
     deleteSavedJoke(state, action) {
       const { id } = action.payload;
       state.savedJokes = omit(state.savedJokes, id);
+    },
+    setCustomPerson(state, action) {
+      state.customPerson = action.payload;
+    },
+    setCategory(state, action) {
+      state.category = action.payload;
     },
   },
 });

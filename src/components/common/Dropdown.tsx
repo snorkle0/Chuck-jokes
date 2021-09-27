@@ -3,35 +3,51 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { useGetJokeCategoriesQuery } from "../../services/chuckJokes";
+import * as S from "./Controls.styles";
+import { useAppDispatch, useAppSelector } from "../../hooks/appHooks";
+import { dataActions } from "../../store/reducers/data";
+import { capitalize } from 'lodash';
+import { textAlign } from "@mui/system";
 
 const Dropdown = () => {
-  const [age, setAge] = React.useState("");
+  const dispatch = useAppDispatch();
+
+  const [categories, setCategories] = React.useState([]);
+
+  const { data, error, isLoading } = useGetJokeCategoriesQuery("");
+
+  React.useEffect(() => {
+    setCategories(data);
+  }, [data]);
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value);
+    dispatch(dataActions.setCategory(event.target.value));
   };
+  const category = useAppSelector((state) => state.data.category);
 
   return (
-    <div>
-      <FormControl sx={{ m: 1, minWidth: 80 }}>
-        <InputLabel id="demo-simple-select-autowidth-label">Age</InputLabel>
+    <S.ControlContainer>
+      <FormControl fullWidth sx={{textAlign: 'left'}}>
+        <InputLabel id="dropdownLabel">Categories</InputLabel>
         <Select
-          labelId="demo-simple-select-autowidth-label"
-          id="demo-simple-select-autowidth"
-          value={age}
+          labelId="dropdownLabel"
+          id="category"
+          value={category}
           onChange={handleChange}
-          autoWidth
-          label="Age"
+          label="Categories"
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Twenty</MenuItem>
-          <MenuItem value={21}>Twenty one</MenuItem>
-          <MenuItem value={22}>Twenty one and a half</MenuItem>
+          {categories &&
+            categories.map((item: string, id: number) => {
+              return (
+                <MenuItem key={`item_${id}`} value={item}>
+                  {capitalize(item)}
+                </MenuItem>
+              );
+            })}
         </Select>
       </FormControl>
-    </div>
+    </S.ControlContainer>
   );
 };
 

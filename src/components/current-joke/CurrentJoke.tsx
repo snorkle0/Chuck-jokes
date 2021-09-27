@@ -8,20 +8,13 @@ import { dataActions } from "../../store/reducers/data";
 import { useAppDispatch, useAppSelector } from "../../hooks/appHooks";
 
 const CurrentJoke = () => {
-  const { data, error, isLoading } = useGetRandomJokeQuery("random");
-  const getJoke = useCallback(() => {
-    const { joke } = data;
-    // const dispatch = useAppDispatch();
-    // dispatch(dataActions.setCurrentJoke(joke));
-  }, [useGetRandomJokeQuery]);
   const currentJoke = useAppSelector((state) => state.data.currentJoke);
+  const person = useAppSelector((state) => state.data.customPerson);
 
-  if (isLoading) return <div>Thinking of something creative...</div>;
 
-  if (error) return <div>Joke's on you!</div>;
   return (
     <>
-      <S.Image src={ChuckNorrisPhoto}></S.Image>
+      <S.Image src={person? RandomPhoto : ChuckNorrisPhoto}></S.Image>
       <S.TextArea>{currentJoke}</S.TextArea>
     </>
   );

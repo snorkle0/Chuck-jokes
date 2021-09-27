@@ -36,6 +36,7 @@ const Dropdown = () => {
           value={category}
           onChange={handleChange}
           label="Categories"
+          sx={{border: 'solid 1px'}}
         >
           {categories &&
             categories.map((item: string, id: number) => {

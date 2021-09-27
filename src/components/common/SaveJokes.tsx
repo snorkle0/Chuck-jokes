@@ -5,11 +5,13 @@ import { grey } from "@mui/material/colors";
 import { useAppSelector, useAppDispatch } from "../../hooks/appHooks";
 
 const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
-  color: theme.palette.getContrastText(grey[300]),
-  backgroundColor: grey[300],
+  color: theme.palette.getContrastText(grey[200]),
+  backgroundColor: grey[200],
   "&:hover": {
     backgroundColor: grey[500],
   },
+  fontSize: "16px",
+  textTransform: "capitalize"
 }));
 
 const SaveJokes = () => {

@@ -3,6 +3,8 @@ import { IconButton } from "@mui/material";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import { useAppDispatch, useAppSelector } from "../../hooks/appHooks";
 import { dataActions } from "../../store/reducers/data";
+import Plus from '../../assets/plus.svg';
+
 
 const AddJoke = () => {
   const dispatch = useAppDispatch();
@@ -18,8 +20,8 @@ const AddJoke = () => {
 
   return (
     <>
-      <IconButton onClick={onClickHandler}>
-        <AddCircleOutlineOutlinedIcon />
+      <IconButton onClick={onClickHandler} sx={{padding: '8px 0 0 30px'}}>
+        <img src={Plus} alt="Add Joke" />
       </IconButton>
     </>
   );

@@ -1,11 +1,8 @@
-import React, { useCallback } from "react";
-import Controls from "../common/Controls";
+import React from "react";
 import * as S from "./CurrentJoke.styles";
-import ChuckNorrisPhoto from "../../assets/chuck-norris-photo.jpg";
-import RandomPhoto from "../../assets/random-photo.jpg";
-import { useGetRandomJokeQuery } from "../../services/chuckJokes";
-import { dataActions } from "../../store/reducers/data";
-import { useAppDispatch, useAppSelector } from "../../hooks/appHooks";
+import ChuckNorrisPhoto from "../../assets/chuck-norris-photo.png";
+import RandomPhoto from "../../assets/random-photo.png";
+import { useAppSelector } from "../../hooks/appHooks";
 
 const CurrentJoke = () => {
   const currentJoke = useAppSelector((state) => state.data.currentJoke);

@@ -11,7 +11,8 @@ export const TextArea = styled.div`
   width: 439px;
   height: 66px;
   margin: 24px 0 32px;
-  font-family: Inter;
+  padding: 0 0 0 60px;
+  font-family: Inter-SemiBoldItalic;
   font-size: 19px;
   font-weight: 600;
   font-stretch: normal;

@@ -1,8 +1,8 @@
 import React from "react";
 import { IconButton } from "@mui/material";
-import RemoveCircleOutlinedIcon from "@mui/icons-material/RemoveCircleOutlined";
 import { useAppDispatch, useAppSelector } from "../../hooks/appHooks";
 import { dataActions } from "../../store/reducers/data";
+import Minus from "../../assets/minus.svg";
 
 const RemoveJoke = () => {
   const dispatch = useAppDispatch();
@@ -11,12 +11,12 @@ const RemoveJoke = () => {
   );
 
   const onClickHandler = () => {
-    dispatch(dataActions.deleteSavedJoke({ id: currentJokesAmount-1 }));
+    dispatch(dataActions.deleteSavedJoke({ id: currentJokesAmount - 1 }));
   };
   return (
     <>
-      <IconButton onClick={onClickHandler}>
-        <RemoveCircleOutlinedIcon />
+      <IconButton onClick={onClickHandler} sx={{padding: '8px 30px 0 0'}}>
+        <img src={Minus} alt="Remove Joke" />
       </IconButton>
     </>
   );

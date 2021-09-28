@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const App = styled.div `
   text-align: center;
-  width: 900px;
-  height: 900px;
+  width: 50%;
+  height: 50%;
   margin: auto;
   display: flex;
   padding: 98px 443px 98px 442px;

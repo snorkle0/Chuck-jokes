@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Chuck-jokes/static/css/main.a2545b0f.chunk.css",
+    "main.js": "/Chuck-jokes/static/js/main.c050cb1c.chunk.js",
+    "main.js.map": "/Chuck-jokes/static/js/main.c050cb1c.chunk.js.map",
+    "runtime-main.js": "/Chuck-jokes/static/js/runtime-main.bca7a3a8.js",
+    "runtime-main.js.map": "/Chuck-jokes/static/js/runtime-main.bca7a3a8.js.map",
+    "static/js/2.cc29fda6.chunk.js": "/Chuck-jokes/static/js/2.cc29fda6.chunk.js",
+    "static/js/2.cc29fda6.chunk.js.map": "/Chuck-jokes/static/js/2.cc29fda6.chunk.js.map",
+    "index.html": "/Chuck-jokes/index.html",
+    "static/css/main.a2545b0f.chunk.css.map": "/Chuck-jokes/static/css/main.a2545b0f.chunk.css.map",
+    "static/js/2.cc29fda6.chunk.js.LICENSE.txt": "/Chuck-jokes/static/js/2.cc29fda6.chunk.js.LICENSE.txt",
+    "static/media/chuck-norris-photo.a434412d.png": "/Chuck-jokes/static/media/chuck-norris-photo.a434412d.png",
+    "static/media/minus.81b0679c.svg": "/Chuck-jokes/static/media/minus.81b0679c.svg",
+    "static/media/plus.b81c2b22.svg": "/Chuck-jokes/static/media/plus.b81c2b22.svg",
+    "static/media/random-photo.9c55d2b8.png": "/Chuck-jokes/static/media/random-photo.9c55d2b8.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bca7a3a8.js",
+    "static/js/2.cc29fda6.chunk.js",
+    "static/css/main.a2545b0f.chunk.css",
+    "static/js/main.c050cb1c.chunk.js"
+  ]
+}

@@ -2,6 +2,7 @@
   "name": "chuck-norris-jokes",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://snorkle0.github.io/Chuck-norris-jokes/",
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
@@ -14,6 +15,7 @@
     "@types/react-dom": "^17.0.9",
     "@types/styled-components": "^5.1.14",
     "cra-template-typescript": "1.1.2",
+    "gh-pages": "^3.2.3",
     "he": "^1.2.0",
     "lodash": "^4.17.21",
     "react": "^17.0.2",
@@ -27,7 +29,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": [

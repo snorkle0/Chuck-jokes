@@ -22,8 +22,6 @@ const TextInput = () => {
         value={person}
         onChange={handleChange}
         variant="outlined"
-        sx={{border: 'solid 1px', borderRadius:"5px"}}
-
       />
       </S.ControlContainer>
   );

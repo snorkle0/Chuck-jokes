@@ -8,7 +8,6 @@ import * as S from "./Controls.styles";
 import { useAppDispatch, useAppSelector } from "../../hooks/appHooks";
 import { dataActions } from "../../store/reducers/data";
 import { capitalize } from 'lodash';
-import { textAlign } from "@mui/system";
 
 const Dropdown = () => {
   const dispatch = useAppDispatch();
@@ -36,7 +35,6 @@ const Dropdown = () => {
           value={category}
           onChange={handleChange}
           label="Categories"
-          sx={{border: 'solid 1px'}}
         >
           {categories &&
             categories.map((item: string, id: number) => {
